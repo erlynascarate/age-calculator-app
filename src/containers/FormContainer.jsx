@@ -1,9 +1,24 @@
 import { Stack } from '@mui/system'
 
 const inputs = [
-    { label: 'DAY', max: 31 },
-    { label: 'MONTH', max: 12 },
-    { label: 'YEAR', max: new Date().getFullYear() },
+    {
+        label: 'day',
+        placeholder: 'DD',
+        helperText: 'Must be a valid day',
+        max: 31,
+    },
+    {
+        label: 'month',
+        placeholder: 'MM',
+        helperText: 'Must be a valid month',
+        max: 12,
+    },
+    {
+        label: 'year',
+        placeholder: 'YYYY',
+        helperText: 'Must be in the past',
+        max: new Date().getFullYear(),
+    },
 ]
 
 const FormContainer = ({ render }) => {

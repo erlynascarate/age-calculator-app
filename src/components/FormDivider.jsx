@@ -9,6 +9,9 @@ const DividerButton = () => (
             borderRadius: '50%',
             inlineSize: '64px',
             blockSize: '64px',
+            '&:hover': {
+                bgcolor: 'var(--offBlack)',
+            },
         }}
     >
         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 44'>

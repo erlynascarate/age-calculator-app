@@ -10,14 +10,6 @@ import {
 import PoppinsRegular from '../assets/fonts/Poppins-Regular.ttf'
 import PoppinsBold from '../assets/fonts/Poppins-Bold.ttf'
 
-const colors = {
-    white: 'hsl(0, 0%, 100%)',
-    offWhite: 'hsl(0, 0%, 94%)',
-    lightGrey: 'hsl(0, 0%, 86%)',
-    smokeyGrey: 'hsl(0, 1%, 44%)',
-    offBlack: 'hsl(0, 0%, 8%)',
-}
-
 const theme = createTheme({
     typography: {
         fontFamily: '"Poppings", sans-serif',
@@ -52,18 +44,23 @@ const theme = createTheme({
     },
 })
 
-const Form = ({ children }) => {
+const Form = ({ events: { handleSubmit, invalid }, children }) => {
     return (
         <>
             <CssBaseline />
             <ThemeProvider theme={theme}>
                 <Stack
                     sx={{
+                        '--white': 'hsl(0, 0%, 100%)',
+
+                        '--offWhite': 'hsl(0, 0%, 94%)',
+                        '--offBlack': 'hsl(0, 0%, 8%)',
+
                         justifyContent: 'center',
                         paddingBlock: '40px',
                         paddingInline: '5%',
                         minBlockSize: '100vh',
-                        bgcolor: colors.offWhite,
+                        bgcolor: 'var(--offWhite)',
                     }}
                 >
                     <Container
@@ -78,10 +75,16 @@ const Form = ({ children }) => {
                                 sm: '33rem',
                                 md: '43rem',
                             },
-                            bgcolor: colors.white,
+                            bgcolor: 'var(--white)',
                         }}
                     >
-                        <Box component='form'>{children}</Box>
+                        <Box
+                            component='form'
+                            onSubmit={handleSubmit}
+                            onInvalid={invalid}
+                        >
+                            {children}
+                        </Box>
                     </Container>
                 </Stack>
             </ThemeProvider>
