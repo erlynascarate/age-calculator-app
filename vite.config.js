@@ -9,6 +9,7 @@ https://www.flaticon.com/free-icons/age`
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: '/age-calculator-app/',
     plugins: [
         react(),
         VitePWA({
