@@ -7,32 +7,9 @@ import {
     ThemeProvider,
 } from '@mui/material'
 
-import PoppinsRegular from '../assets/fonts/Poppins-Regular.ttf'
-import PoppinsBold from '../assets/fonts/Poppins-Bold.ttf'
-
 const theme = createTheme({
     typography: {
-        fontFamily: '"Poppings", sans-serif',
-    },
-    components: {
-        MuiCssBaseline: {
-            styleOverrides: `
-            @font-face {
-              font-family: 'Poppins';
-              font-style: normal;
-              font-display: swap;
-              font-weight: 400;
-              src: local('Poppins'), local('Poppins-Regular'), url(${PoppinsRegular}) format('ttf');
-            }
-            @font-face {
-                font-family: 'Poppins';
-                font-style: normal;
-                font-display: swap;
-                font-weight: 800;
-                src: local('Poppins'), local('Poppins-Bold'), url(${PoppinsBold}) format('ttf');
-              }
-          `,
-        },
+        fontFamily: '"Poppins", sans-serif',
     },
     palette: {
         primary: {
