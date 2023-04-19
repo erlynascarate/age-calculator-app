@@ -5,18 +5,21 @@ const inputs = [
         label: 'day',
         placeholder: 'DD',
         helperText: 'Must be a valid day',
+        min: 1,
         max: 31,
     },
     {
         label: 'month',
         placeholder: 'MM',
         helperText: 'Must be a valid month',
+        min: 1,
         max: 12,
     },
     {
         label: 'year',
         placeholder: 'YYYY',
         helperText: 'Must be in the past',
+        min: 100,
         max: new Date().getFullYear(),
     },
 ]

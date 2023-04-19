@@ -4,7 +4,7 @@ import { TextField } from '@mui/material'
 const initialState = { error: false, hpText: false }
 
 const FormInput = ({
-    input: { label, placeholder, helperText, max },
+    input: { label, placeholder, helperText, min, max },
     inputRefs,
 }) => {
     const [formInput, setFormInput] = useState(initialState)
@@ -43,7 +43,6 @@ const FormInput = ({
 
         const date = parseInt(input.value)
 
-        const min = 1
         const isAValidDate = date <= max && date >= min && !isNaN(date)
         if (isAValidDate) {
             setFormInput(initialState)
@@ -73,7 +72,7 @@ const FormInput = ({
                 },
             }}
             inputProps={{
-                min: '1',
+                min,
                 max,
                 sx: {
                     paddingBlock: '11px',
