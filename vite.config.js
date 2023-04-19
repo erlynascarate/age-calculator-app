@@ -18,10 +18,11 @@ export default defineConfig({
                 'favicon-32x32.png',
                 'favicon-16x16.png',
                 'apple-touch-icon.png',
+                'screenshot.png',
             ],
             manifest: {
                 name: 'Age Calculator',
-                short_name: 'Age',
+                short_name: 'Calculator',
                 description,
                 theme_color: '#ffffff',
                 background_color: '#ffffff',
@@ -38,6 +39,11 @@ export default defineConfig({
                         type: 'image/png',
                     },
                     {
+                        src: 'pwa-753x753.png',
+                        sizes: '753x753',
+                        type: 'image/png',
+                    },
+                    {
                         src: 'maskable_icon_x512.png',
                         sizes: '512x512',
                         type: 'image/png',
@@ -50,15 +56,15 @@ export default defineConfig({
                         purpose: 'maskable',
                     },
                 ],
-                // screenshots: [
-                //     {
-                //         src: 'screenshot.png',
-                //         sizes: '850x1860',
-                //         type: 'image/png',
-                //         platform: 'narrow',
-                //         label: 'Tip calculator being used',
-                //     },
-                // ],
+                screenshots: [
+                    {
+                        src: 'screenshot.png',
+                        sizes: '750x1334',
+                        type: 'image/png',
+                        platform: 'narrow',
+                        label: 'Age calculator being used',
+                    },
+                ],
             },
         }),
     ],

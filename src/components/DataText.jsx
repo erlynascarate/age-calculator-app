@@ -15,7 +15,7 @@ const DataText = ({ date: { date, text } }) => {
         <Typography
             variant='h2'
             sx={{
-                fontSize: { sm: '5rem' },
+                fontSize: { xs: '3.4rem;', sm: '5rem' },
                 fontWeight: '800',
                 fontStyle: 'italic',
             }}
