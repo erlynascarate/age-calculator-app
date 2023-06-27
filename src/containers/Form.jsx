@@ -6,6 +6,7 @@ import {
     Stack,
     ThemeProvider,
 } from '@mui/material'
+import InstallationButton from '../components/InstallationButton'
 
 const theme = createTheme({
     typography: {
@@ -43,6 +44,7 @@ const Form = ({ events: { handleSubmit, invalid }, children }) => {
                     <Container
                         component='main'
                         sx={{
+                            position: 'relative',
                             borderRadius: '24px',
                             borderEndEndRadius: { xs: '115px', sm: '160px' },
                             paddingBlock: '40px',
@@ -55,6 +57,7 @@ const Form = ({ events: { handleSubmit, invalid }, children }) => {
                             bgcolor: 'var(--white)',
                         }}
                     >
+                        <InstallationButton />
                         <Box
                             component='form'
                             onSubmit={handleSubmit}
