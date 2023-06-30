@@ -31,7 +31,7 @@ const InstallationButton = () => {
                             insetInlineStart: 'calc(50% - 59px)',
                             borderRadius: 4,
                             '&:hover': {
-                                bgcolor: 'var(--offBlack)',
+                                bgcolor: 'primary.hover',
                             },
                         }}
                         variant='contained'

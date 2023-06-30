@@ -8,10 +8,9 @@ const DividerButton = () => (
                 inlineSize: '64px',
                 blockSize: '64px',
                 '&:hover': {
-                    bgcolor: 'var(--offBlack)',
+                    bgcolor: 'primary.hover',
                 },
             }}
-            color='primary'
             type='submit'
             variant='contained'
         >

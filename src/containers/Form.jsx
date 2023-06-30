@@ -10,35 +10,41 @@ import InstallationButton from '../components/InstallationButton'
 
 const theme = createTheme({
     typography: {
-        fontFamily: '"Poppins", sans-serif',
+        fontFamily: 'Poppins, sans-serif',
     },
     palette: {
+        common: {
+            white: 'hsl(0, 0%, 100%)',
+        },
         primary: {
             main: 'hsl(259, 100%, 65%)',
+            hover: 'hsl(0, 0%, 8%)',
         },
         error: {
             main: 'hsl(0, 100%, 67%)',
         },
+        background: {
+            default: 'hsl(0, 0%, 94%)',
+        },
     },
 })
 
-const Form = ({ events: { handleSubmit, invalid }, children }) => {
+const Form = (props) => {
+    const {
+        events: { handleSubmit, invalid },
+        children,
+    } = props
+
     return (
         <>
-            <CssBaseline />
             <ThemeProvider theme={theme}>
+                <CssBaseline />
                 <Stack
                     sx={{
-                        '--white': 'hsl(0, 0%, 100%)',
-
-                        '--offWhite': 'hsl(0, 0%, 94%)',
-                        '--offBlack': 'hsl(0, 0%, 8%)',
-
                         justifyContent: 'center',
                         paddingBlock: '40px',
                         paddingInline: '5%',
                         minBlockSize: '100vh',
-                        bgcolor: 'var(--offWhite)',
                     }}
                 >
                     <Container
@@ -54,7 +60,7 @@ const Form = ({ events: { handleSubmit, invalid }, children }) => {
                                 sm: '33rem',
                                 md: '43rem',
                             },
-                            bgcolor: 'var(--white)',
+                            bgcolor: 'common.white',
                         }}
                     >
                         <InstallationButton />

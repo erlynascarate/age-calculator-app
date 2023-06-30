@@ -1,6 +1,11 @@
 import { Box } from '@mui/material'
 
-const Data = ({ dates: { year, month, day }, render }) => {
+const Data = (props) => {
+    const {
+        dates: { year, month, day },
+        render,
+    } = props
+
     const Dates = [
         { date: year, text: 'years' },
         { date: month, text: 'months' },

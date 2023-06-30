@@ -3,10 +3,12 @@ import { TextField } from '@mui/material'
 
 const initialState = { error: false, hpText: false }
 
-const FormInput = ({
-    input: { label, placeholder, helperText, min, max },
-    inputRefs,
-}) => {
+const FormInput = (props) => {
+    const {
+        input: { label, placeholder, helperText, min, max },
+        inputRefs,
+    } = props
+
     const [formInput, setFormInput] = useState(initialState)
 
     const onChange = (event) => {
