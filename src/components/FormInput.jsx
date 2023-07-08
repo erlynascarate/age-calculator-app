@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import { TextField } from '@mui/material'
 
-const initialState = { error: false, hpText: false }
+const initialState = { error: false, helperText: false }
 
 const FormInput = (props) => {
     const {
-        input: { label, placeholder, helperText, min, max },
+        input: { label, placeholder, min, max },
         inputRefs,
     } = props
 
     const [formInput, setFormInput] = useState(initialState)
 
-    const onChange = (event) => {
+    const validate = (event) => {
         const yearRef = inputRefs.current.year
         const monthRef = inputRefs.current.month
         const dayRef = inputRefs.current.day
@@ -23,7 +23,7 @@ const FormInput = (props) => {
             const date = new Date(yearRef.value, monthRef.value, 1)
             date.setDate(0)
 
-            const days = date.getDate()
+            const days = date.getDate() || 31
             dayRef.max = days
             monthRef.max = 12
 
@@ -44,25 +44,31 @@ const FormInput = (props) => {
         }
 
         const date = parseInt(input.value)
-
         const isAValidDate = date <= max && date >= min && !isNaN(date)
         if (isAValidDate) {
             setFormInput(initialState)
         } else {
-            setFormInput({ error: true, hpText: helperText })
+            const { validationMessage } = input
+            setFormInput({ error: true, helperText: validationMessage })
         }
     }
 
+    const { error, helperText } = formInput
+
     return (
         <TextField
-            sx={{ inlineSize: '33%' }}
-            error={formInput.error}
+            onInput={validate}
+            sx={{
+                pb: { xs: helperText ? 1 : 4, md: 0 },
+                inlineSize: '33%',
+            }}
+            error={error}
+            helperText={helperText}
             label={label}
-            type='number'
             name={label}
             placeholder={placeholder}
-            helperText={formInput.hpText}
-            onInput={onChange}
+            required
+            type='number'
             InputLabelProps={{
                 sx: {
                     fontSize: {
@@ -78,7 +84,7 @@ const FormInput = (props) => {
                 max,
                 sx: {
                     paddingBlock: '11px',
-                    paddingInline: { sm: '16px' },
+                    paddingInline: { sm: 2 },
                     fontSize: {
                         xs: '1.5rem',
                         sm: '2rem',
@@ -87,7 +93,13 @@ const FormInput = (props) => {
                 },
                 ref: (el) => (inputRefs.current[label] = el),
             }}
-            required
+            FormHelperTextProps={{
+                sx: {
+                    mt: { sm: 1 },
+                    mx: 0,
+                    lineHeight: 1.1,
+                },
+            }}
         />
     )
 }

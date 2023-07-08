@@ -16,7 +16,7 @@ const FormDivider = () => {
         <>
             <Divider
                 sx={{
-                    marginBlock: { xs: '32px 24px', md: 0 },
+                    mb: { xs: 3, md: 0 },
                 }}
                 textAlign={textAlign}
             >
