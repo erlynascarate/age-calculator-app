@@ -28,7 +28,7 @@ const Form = (props) => {
                         sm: '33rem',
                         md: '43rem',
                     },
-                    bgcolor: 'common.white',
+                    bgcolor: 'background.paper',
                 }}
                 component='main'
             >
